@@ -1,5 +1,6 @@
 function headerDisplay() {
   const header = document.createElement("header");
+  header.innerHTML = "";
   const wrapper = document.createElement("div");
   const logo = document.createElement("div");
   const headerButtons = document.createElement("div");
@@ -15,6 +16,17 @@ function headerDisplay() {
   themeButton.classList.add("button");
   menuButton.classList.add("button");
   headerMenu.classList.add("header_menu");
+  //
+
+  logo.addEventListener("click", () => {
+    current_id = 0;
+    localStorage.setItem("page_id", current_id);
+    mainDisplay();
+  });
+  menuButton.addEventListener("click", (event) => {
+    if (event.target.localName !== "i") return;
+    menuButton.classList.toggle("menu_active");
+  });
 
   // Добавляем id элементам
   themeButton.id = "theme";
@@ -36,19 +48,18 @@ function headerDisplay() {
 
   // FOR
 
-  for(const page of PAGES){
-    const menuItem = document.createElement('div');
+  for (const page of PAGES) {
+    const menuItem = document.createElement("div");
     menuItem.classList.add("header_menu_item");
     menuItem.textContent = page.title;
-    menuItem.addEventListener(("click"), ()=>{
+    menuItem.addEventListener("click", () => {
       current_id = page.id;
+      localStorage.setItem("page_id", current_id);
       mainDisplay();
-    })
+    });
     headerMenu.appendChild(menuItem);
   }
 
   // Добавляем header на страницу
   document.body.insertBefore(header, document.body.firstChild);
 }
-
-headerDisplay();

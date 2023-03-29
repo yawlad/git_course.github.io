@@ -63,10 +63,17 @@
   padding: var(--offset-xs);
   border-radius: var(--offset-xs);
   transition: 0.5s;
+  line-height: var(--offset-xl);
 }
 .header_menu_item:hover { 
  background-color: var(--grey-color-light-2);
 }
-#menu:hover .header_menu{
+
+.menu_active .header_menu{
   transform: scaleY(1) scaleX(1);
+}
+
+.menu_active i {
+  color: var(--orange-color);
+  background-color: var(--white-color);
 }

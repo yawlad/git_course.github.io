@@ -2,7 +2,6 @@ function mainDisplay() {
   window.scrollTo(0, 0);
   const mainWrapper = document.querySelector("main .wrapper");
   mainWrapper.innerHTML = "";
-  mainWrapper.id = current_id;
   const page = PAGES[current_id];
   const buttonsHTML = createButtonsHTML(PAGES[current_id-1], PAGES[current_id+1]);
   const mainHeaderHTML = createMainHeaderHTML(page.title);
@@ -19,18 +18,16 @@ function addEvents(){
   const prevButton = document.getElementById("nav_button_prev");
   prevButton.addEventListener("click",()=>{
     current_id--;
-    mainDisplay(current_id);
+    localStorage.setItem("page_id", current_id);
+    mainDisplay();
   })
   const nextButton = document.getElementById("nav_button_next");
   nextButton.addEventListener("click", ()=>{
     current_id++;
-    mainDisplay(current_id);
+    localStorage.setItem("page_id", current_id);
+    mainDisplay();
   })
-  const logo = document.querySelector(".header .logo");
-  logo.addEventListener("click", ()=>{
-    current_id=0;
-    mainDisplay(current_id);
-  })
+  
 }
 
 function createMainHeaderHTML(header) {
@@ -39,6 +36,7 @@ function createMainHeaderHTML(header) {
 }
 
 function createButtonsHTML(prev, next) {
+  
   let result = `
   <div class="nav_buttons">
     <button class="nav_button `
@@ -66,7 +64,6 @@ function createGoalsHTML(goals) {
 
 function createStepsListHTML(stages) {
   let result = `<div class="steps_list">`;
-  console.log(stages);
   for (let stage of stages) {
     result += `
     <div class="step">
@@ -80,5 +77,16 @@ function createStepsListHTML(stages) {
   }
   return result;
 }
+const PAGES = createPages();
+formatPages();
+console.log(PAGES);
 
-mainDisplay(current_id);
+let current_id = Number(localStorage.getItem("page_id"));
+
+if(!current_id) current_id = 0;
+console.log(current_id+1);
+console.log(PAGES[current_id-1])
+
+footerDisplay();
+headerDisplay();
+mainDisplay();

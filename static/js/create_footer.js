@@ -14,4 +14,4 @@ function footerDisplay() {
   document.body.appendChild(footer);
 }
 
-footerDisplay();
+
