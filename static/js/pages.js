@@ -453,7 +453,7 @@ const itemsHTML = [
     "\n<p>Теперь давайте рассмотрим объединение fetch &amp; merge в одну команду.</p>",
   ],
   [
-    '\n<p>Скачайте учебные материалы здесь:</p>\n\n<ul>\n<li><a href="../static/files/GIT_Course_Materials.zip" target="_blank" prefetch="0">вот здесь</a></li>\n</ul>\n',
+    '\n<p>Скачайте учебные материалы здесь:</p>\n\n<ul>\n<li><a href="https://raw.githubusercontent.com/yawlad/git_course.github.io/develop/static/files/GIT_Course_Materials.zip" target="_blank" prefetch="0">вот здесь</a></li>\n</ul>\n',
     "\n<p>Пакет учебных материалов должен иметь главную папку «git_tutorial» с двумя подпапками:</p>\n\n<ul>\n<li>work — пустой рабочий каталог.  Здесь будут лежать ваши репозитории.</li>\n<li>files — заранее упакованные файлы для того, чтобы вы могли продолжить работать с учебными материалами на любом этапе.  Если вы застрянете, просто скопируйте нужный урок в свою рабочую папку.</li>\n</ul>",
   ],
   [
