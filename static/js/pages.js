@@ -584,7 +584,3 @@ function formatPages(){
     }
   }
 }
-
-const PAGES = createPages();
-formatPages();
-let current_id = 0;
